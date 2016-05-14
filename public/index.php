@@ -23,6 +23,5 @@ define("SYS_PATH", "lib/core/");
 // Load Bootstrap and run the app
 // --------------------------------------------------------------
 require SYS_PATH."Bootstrap.php";
-
 $app = new Bootstrap();
 $app->run();

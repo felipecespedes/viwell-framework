@@ -2,14 +2,34 @@
 
 class Bootstrap
 {
+	/**
+	* Initialize the application
+	*/
 	public function run()
 	{
-		$url = self::resolveURL();
+		// --------------------------------------------------------------
+		// Load the files Loader and the necessary files to run the app
+		// --------------------------------------------------------------
+		require SYS_PATH."Loader.php";
+		Loader::loadInitFiles();
 
-		self::resolveAction($url);
+		// --------------------------------------------------------------
+		// Get the URL
+		// --------------------------------------------------------------
+		$url = self::getUrl();
+
+		// --------------------------------------------------------------
+		// Call Router to resolve the route
+		// --------------------------------------------------------------
+		Executor::resolveRoute($url);
 	}
 
-	private function resolveURL()
+	/**
+	* Get the current url in the browser
+	*
+	* @return string $url
+	*/
+	private function getUrl()
 	{
 		if ( !isset($_GET["url"]) ) {
 			$url = "/";
@@ -20,13 +40,5 @@ class Bootstrap
 		}
 
 		return $url;
-	}
-
-	private function resolveAction($url)
-	{
-		require SYS_PATH."Router.php";
-		require APP_PATH."http/routes.php";
-
-		Router::getActionFromUrl($url);
 	}
 }
