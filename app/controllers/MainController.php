@@ -2,8 +2,8 @@
 
 namespace app\controllers;
 
-use core\controllers\Controller;
-use core\helpers\Response;
+use lib\controllers\Controller;
+use lib\helpers\Response;
 
 class MainController extends Controller
 {

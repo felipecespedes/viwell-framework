@@ -1,6 +1,6 @@
 <?php
 
-namespace core\helpers;
+namespace lib\helpers;
 
 class Response
 {
@@ -15,7 +15,7 @@ class Response
 	{
 		/**
 		|----------------------------------------------------------------
-		|	TODO: How to work view vars?
+		|	TODO: How to work with view vars?
 		|----------------------------------------------------------------
 		|
 		|	foreach ($vars as $key => $value) {

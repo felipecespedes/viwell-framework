@@ -22,7 +22,7 @@ class Executor
 		// --------------------------------------------------------------
 		// Get the name of the controller to be executed and its method
 		// --------------------------------------------------------------
-		$controllerName = "app\\controllers\\" . $controllerName;
+		$controllerName = "app\\controllers\\".$controllerName;
 		$method = $route["method"];
 
 		// --------------------------------------------------------------

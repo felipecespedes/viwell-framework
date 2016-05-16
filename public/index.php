@@ -16,12 +16,13 @@ chdir( dirname(__DIR__) );
 // --------------------------------------------------------------
 // Define the framework paths
 // --------------------------------------------------------------
+define("SYS_PATH", "lib/");
+define("CORE_PATH", SYS_PATH."core/");
 define("APP_PATH", "app/");
-define("SYS_PATH", "lib/core/");
 
 // --------------------------------------------------------------
 // Load Bootstrap and run the app
 // --------------------------------------------------------------
-require SYS_PATH."Bootstrap.php";
+require CORE_PATH."Bootstrap.php";
 $app = new Bootstrap();
 $app->run();

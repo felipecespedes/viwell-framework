@@ -10,7 +10,7 @@ class Bootstrap
 		// --------------------------------------------------------------
 		// Load the files Loader and the necessary files to run the app
 		// --------------------------------------------------------------
-		require SYS_PATH."Loader.php";
+		require CORE_PATH."Loader.php";
 		Loader::loadInitFiles();
 
 		// --------------------------------------------------------------
@@ -19,7 +19,7 @@ class Bootstrap
 		$url = self::getUrl();
 
 		// --------------------------------------------------------------
-		// Call Router to resolve the route
+		// Call Executor to resolve the route
 		// --------------------------------------------------------------
 		Executor::resolveRoute($url);
 	}

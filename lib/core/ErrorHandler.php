@@ -27,7 +27,7 @@ class ErrorHandler
 	/**
 	* Execute when a method is not defined
 	*
-	* @param string $cotroller
+	* @param string $controller
 	* @param string $method
 	*/
 	public static function methodNotDefined($controller, $method)

@@ -8,11 +8,11 @@ class Loader
 	* @var array
 	*/
 	private static $initFiles = [
-		["name" => "functions", "dir" => SYS_PATH],
-		["name" => "ErrorHandler", "dir" => SYS_PATH],
-		["name" => "Sanitizer", "dir" => SYS_PATH],
-		["name" => "Executor", "dir" => SYS_PATH],
-		["name" => "Router", "dir" => SYS_PATH],
+		["name" => "functions", "dir" => CORE_PATH],
+		["name" => "ErrorHandler", "dir" => CORE_PATH],
+		["name" => "Sanitizer", "dir" => CORE_PATH],
+		["name" => "Executor", "dir" => CORE_PATH],
+		["name" => "Router", "dir" => CORE_PATH],
 		["name" => "helpers/Response", "dir" => SYS_PATH],
 		["name" => "controllers/Controller", "dir" => SYS_PATH],
 		["name" => "http/routes", "dir" => APP_PATH],
@@ -25,9 +25,9 @@ class Loader
 	* @param string $baseDir
 	* @param string $fileExtension	
 	*/
-	public static function load($fileName, $baseDir = APP_PATH, $fileExtension = ".php")
+	public static function load($fileName, $baseDir = APP_PATH, $fileExtension = "php")
 	{
-		$filePath = $baseDir . $fileName . $fileExtension;
+		$filePath = $baseDir.$fileName.".".$fileExtension;
 
 		if ( file_exists($filePath) ) {
 			require $filePath;
@@ -42,7 +42,7 @@ class Loader
 	public static function loadInitFiles()
 	{
 		foreach (self::$initFiles as $file) {
-			self::load( $file["name"], $file["dir"]);
+			self::load($file["name"], $file["dir"]);
 		}
 	}
 }

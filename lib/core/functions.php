@@ -15,6 +15,5 @@
 */
 function fin($message = "PHP Exit.")
 {
-	print_r($message);
-	exit;
+	die($message);
 }
