@@ -19,10 +19,22 @@ class View
 	/**
 	* Create a new View instance
 	*
-	* @param string $viewPath
+	* @param string $viewName
+	* @param string $baseDir
+	* @param string $fileExtension
 	*/
-	public function __construct($viewPath)
+	public function __construct($viewName, $baseDir = null, $fileExtension = "php")
 	{
+		// --------------------------------------------------------------
+		// Assign default base directory if null
+		// --------------------------------------------------------------
+		if ( is_null($baseDir) ) $baseDir = APP_PATH."/views/";
+
+		// --------------------------------------------------------------
+		// Get the view path
+		// --------------------------------------------------------------
+		$viewPath = $baseDir.$viewName.".".$fileExtension;
+
 		// --------------------------------------------------------------
 		// Validate if exists the view file and get its content
 		// --------------------------------------------------------------
