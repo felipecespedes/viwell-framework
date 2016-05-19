@@ -12,6 +12,6 @@ class MainController extends Controller
 	*/
 	public function index()
 	{
-		return Response::view("index", ["greeting" => "Hello world!"]);
+		return Response::view("index", ["framework" => "Viwell Framework"]);
 	}
 }

@@ -13,6 +13,7 @@ class Loader
 		["name" => "Sanitizer", "dir" => CORE_PATH],
 		["name" => "Executor", "dir" => CORE_PATH],
 		["name" => "Router", "dir" => CORE_PATH],
+		["name" => "View", "dir" => CORE_PATH],
 		["name" => "helpers/Response", "dir" => SYS_PATH],
 		["name" => "controllers/Controller", "dir" => SYS_PATH],
 		["name" => "http/routes", "dir" => APP_PATH],

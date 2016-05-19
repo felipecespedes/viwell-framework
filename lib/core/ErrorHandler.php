@@ -35,4 +35,14 @@ class ErrorHandler
 		$message = "Error: This method is not defined [ ".$method." ]. in controller [".$controller."] ";
 		fin($message);
 	}
+
+	/**
+	* Show an error message
+	*
+	* @param string $message
+	*/
+	public static function error($message)
+	{
+		fin($message);
+	}
 }

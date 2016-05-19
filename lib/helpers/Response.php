@@ -7,43 +7,30 @@ class Response
 	/**
 	* Render a view
 	*
-	* @param string $view
+	* @param string $viewName
 	* @param array $vars
 	* @return string
 	*/
-	public static function view($view, $vars = [])
+	public static function view($viewName, $vars = [])
 	{
-		/**
-		|----------------------------------------------------------------
-		|	TODO: How to work with view vars?
-		|----------------------------------------------------------------
-		|
-		|	foreach ($vars as $key => $value) {
-		|		$$key = $value;
-		|	}
-		*/
-		
 		// --------------------------------------------------------------
 		// Sanitize the view name
 		// --------------------------------------------------------------
-		$view = \Sanitizer::sanitizeViewName($view);
+		$viewName = \Sanitizer::sanitizeViewName($viewName);
 
 		// --------------------------------------------------------------
-		// Get the file name
+		// Instantiate the View
 		// --------------------------------------------------------------
-		$viewName = APP_PATH."views/".$view.".php";
+		$view = new \View(APP_PATH."views/".$viewName.".php");
 
 		// --------------------------------------------------------------
-		// Validate if exists the view file and get its content
+		// Add vars to view
 		// --------------------------------------------------------------
-		if ( file_exists($viewName) ) {
-			$viewContent = file_get_contents($viewName);	
+		foreach ($vars as $key => $value) {
+			$view->addVar($key, $value);
 		}
-		else {
-			\ErrorHandler::fileNotFound($viewName);
-		}
-		
-		return $viewContent;
+
+		return $view->show();
 	}
 
 	/**
