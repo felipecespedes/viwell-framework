@@ -38,9 +38,9 @@ class Executor
 		}
 
 		// --------------------------------------------------------------
-		// Print the result of the executed method
+		// Execute the method
 		// --------------------------------------------------------------
-		echo $controller->$method();
+		$controller->$method();
 
 		/**
 		|----------------------------------------------------------------
@@ -69,6 +69,6 @@ class Executor
 		// --------------------------------------------------------------
 		// Call to execute the method of the route
 		// --------------------------------------------------------------
-		self::executeMethod($route);
+		static::executeMethod($route);
 	}
 }

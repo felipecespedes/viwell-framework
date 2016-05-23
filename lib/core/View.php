@@ -36,10 +36,10 @@ class View
 		$viewPath = $baseDir.$viewName.".".$fileExtension;
 
 		// --------------------------------------------------------------
-		// Validate if exists the view file and get its content
+		// Validate if exists the view file and assign the path
 		// --------------------------------------------------------------
 		if ( file_exists($viewPath) ) {
-			$this->view = file_get_contents($viewPath);	
+			$this->view = $viewPath;
 		}
 		else {
 			\ErrorHandler::fileNotFound($viewPath);
@@ -64,18 +64,14 @@ class View
 	*/
 	public function show()
 	{
-		$this->replacePlaceholders();
-
-		return $this->view;
-	}
-
-	/**
-	* Replace placeholders by its values in the view
-	*/
-	private function replacePlaceholders()
-	{
+		// --------------------------------------------------------------
+		// Create variables based on $this->assignedVars
+		// --------------------------------------------------------------
 		foreach ($this->assignedVars as $key => $value) {
-			$this->view = str_replace("{{".$key."}}", $value, $this->view);
+			$$key = $value;
 		}
+
+		require $this->view;
 	}
+
 }

@@ -22,6 +22,6 @@ class Router
 
 		$url = Sanitizer::sanitizeViewName($url);
 
-		self::$routes[$url] = $route;
+		static::$routes[$url] = $route;
 	}
 }
