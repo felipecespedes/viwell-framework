@@ -35,7 +35,8 @@ class Loader
 
 		if ( file_exists($filePath) ) {
 			require $filePath;
-		} else {
+		}
+		else {
 			ErrorHandler::fileNotFound($filePath);
 		}
 	}
@@ -53,7 +54,8 @@ class Loader
 
 		if ( file_exists($filePath) ) {
 			return require $filePath;
-		} else {
+		}
+		else {
 			return ErrorHandler::fileNotFound($filePath);
 		}	
 	}
