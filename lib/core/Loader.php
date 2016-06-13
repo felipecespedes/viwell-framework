@@ -11,6 +11,7 @@ class Loader
 		["name" => "functions", "dir" => CORE_PATH],
 		["name" => "ErrorHandler", "dir" => CORE_PATH],
 		["name" => "Config", "dir" => CORE_PATH],
+		["name" => "Singleton", "dir" => CORE_PATH],
 		["name" => "Sanitizer", "dir" => CORE_PATH],
 		["name" => "Executor", "dir" => CORE_PATH],
 		["name" => "Router", "dir" => CORE_PATH],
@@ -33,10 +34,12 @@ class Loader
 	{
 		$filePath = $baseDir.$fileName.".".$fileExtension;
 
-		if ( file_exists($filePath) ) {
+		if ( file_exists($filePath) )
+		{
 			require $filePath;
 		}
-		else {
+		else
+		{
 			ErrorHandler::fileNotFound($filePath);
 		}
 	}
@@ -52,10 +55,12 @@ class Loader
 	{
 		$filePath = $baseDir.$fileName.".".$fileExtension;
 
-		if ( file_exists($filePath) ) {
+		if ( file_exists($filePath) )
+		{
 			return require $filePath;
 		}
-		else {
+		else
+		{
 			return ErrorHandler::fileNotFound($filePath);
 		}	
 	}
@@ -65,14 +70,16 @@ class Loader
 	*/
 	public static function loadInitFiles()
 	{
-		foreach (static::$initFiles as $file) {
+		foreach (static::$initFiles as $file)
+		{
 			static::load($file["name"], $file["dir"]);
 		}
 
 		// --------------------------------------------------------------
 		// Load models files
 		// --------------------------------------------------------------
-		foreach (glob(APP_PATH."models/*.php") as $fileName) {
+		foreach (glob(APP_PATH."models/*.php") as $fileName)
+		{
 			require $fileName;
 		}
 	}

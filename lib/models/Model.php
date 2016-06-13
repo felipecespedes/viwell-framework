@@ -30,8 +30,11 @@ class Model
 		// By reflection get the name of the model table
 		// The default value is the class name, all lowercase
 		// --------------------------------------------------------------	
-		$reflection = new \ReflectionClass($this);
-		if ( is_null($this->table) ) $this->table = strtolower($reflection->getShortName());
+		if ( is_null($this->table) )
+		{
+			$reflection = new \ReflectionClass($this);
+			$this->table = strtolower($reflection->getShortName());
+		}
 
 		// --------------------------------------------------------------
 		// Load the model structure
@@ -50,7 +53,7 @@ class Model
 		// --------------------------------------------------------------
 		// Instanciate the current model
 		// --------------------------------------------------------------
-		$model = static::getModel();
+		$model = new static();
 
 		// --------------------------------------------------------------
 		// Execute the database query
@@ -62,25 +65,13 @@ class Model
 		// --------------------------------------------------------------
 		// Validate the result and build the model
 		// --------------------------------------------------------------
-		if ( !empty($result) ) {
-			foreach ($result as $key => $value) {
+		if ( !empty($result) )
+		{
+			foreach ($result as $key => $value)
+			{
 				$model->$key = $value;
-			}	
+			}
 		}
-
-		return $model;
-	}
-
-	/**
-	* Instanciate the current model by reflection
-	*
-	* @return Model Object
-	*/
-	private static function getModel()
-	{
-		$reflection = new \ReflectionClass(get_called_class());
-		$className = $reflection->getName();
-		$model = new $className();
 
 		return $model;
 	}
@@ -100,8 +91,10 @@ class Model
 		// --------------------------------------------------------------
 		// Validate the result and build the model structure
 		// --------------------------------------------------------------
-		if ( !empty($result) ) {
-			foreach ($result as $key => $value) {
+		if ( !empty($result) )
+		{
+			foreach ($result as $key => $value)
+			{
 				$this->{$value["column_name"]} = null;
 			}
 		}

@@ -28,7 +28,10 @@ class View
 		// --------------------------------------------------------------
 		// Assign default base directory if null
 		// --------------------------------------------------------------
-		if ( is_null($baseDir) ) $baseDir = APP_PATH."/views/";
+		if ( is_null($baseDir) ) 
+		{
+			$baseDir = APP_PATH."/views/";
+		}
 
 		// --------------------------------------------------------------
 		// Get the view path
@@ -38,10 +41,12 @@ class View
 		// --------------------------------------------------------------
 		// Validate if exists the view file and assign the path
 		// --------------------------------------------------------------
-		if ( file_exists($viewPath) ) {
+		if ( file_exists($viewPath) )
+		{
 			$this->view = $viewPath;
 		}
-		else {
+		else
+		{
 			\ErrorHandler::fileNotFound($viewPath);
 		}
 	}
@@ -54,7 +59,8 @@ class View
 	*/
 	public function addVar($key, $value)
 	{
-		if ( !empty($key) ) {
+		if ( !empty($key) )
+		{
 			$this->assignedVars[$key] = $value;
 		}
 	}
@@ -67,7 +73,8 @@ class View
 		// --------------------------------------------------------------
 		// Create variables based on $this->assignedVars
 		// --------------------------------------------------------------
-		foreach ($this->assignedVars as $key => $value) {
+		foreach ($this->assignedVars as $key => $value)
+		{
 			$$key = $value;
 		}
 

@@ -26,7 +26,8 @@ class Response
 		// --------------------------------------------------------------
 		// Add vars to view
 		// --------------------------------------------------------------
-		foreach ($vars as $key => $value) {
+		foreach ($vars as $key => $value)
+		{
 			$view->addVar($key, $value);
 		}
 

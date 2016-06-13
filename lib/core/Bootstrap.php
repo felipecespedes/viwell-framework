@@ -31,10 +31,12 @@ class Bootstrap
 	*/
 	private function getUrl()
 	{
-		if ( !isset($_GET["url"]) ) {
+		if ( !isset($_GET["url"]) )
+		{
 			$url = "/";
 		}
-		else {
+		else
+		{
 			$url = $_GET["url"];
 			$url = rtrim($url, "/");
 		}

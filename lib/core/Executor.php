@@ -33,7 +33,8 @@ class Executor
 		// --------------------------------------------------------------
 		// Validate if method exists
 		// --------------------------------------------------------------
-		if ( !method_exists($controller, $method) ) {
+		if ( !method_exists($controller, $method) )
+		{
 			ErrorHandler::methodNotDefined($controllerName, $method);
 		}
 
@@ -59,10 +60,12 @@ class Executor
 		// --------------------------------------------------------------
 		// Validate if the route exists for the given URL
 		// --------------------------------------------------------------
-		if ( array_key_exists($url, Router::$routes) ) {
+		if ( array_key_exists($url, Router::$routes) )
+		{
 			$route = Router::$routes[$url];
 		}
-		else {
+		else
+		{
 			ErrorHandler::routeNotFound($url);
 		}
 
