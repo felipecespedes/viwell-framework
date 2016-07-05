@@ -3,7 +3,7 @@
 *	Viwell Framework - PHP framework for web development
 *	
 *	@package Viwell
-*	@version 1.0.0 Beta
+*	@version 1.0.0 Dev
 *	@author Felipe Céspedes
 *	@license MIT License
 */
