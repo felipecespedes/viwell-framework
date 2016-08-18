@@ -6,11 +6,6 @@ use Windwalker\Renderer\BladeRenderer;
 
 class Controller
 {
-	public function actionIndex()
-	{
-		return "Default Index";
-	}
-	
 	/**
 	* Render a view
 	*

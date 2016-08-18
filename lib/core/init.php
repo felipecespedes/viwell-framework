@@ -7,8 +7,6 @@ require CORE_PATH."Router.php";
 require CORE_PATH."functions.php";
 require CORE_PATH."ErrorHandler.php";
 require CORE_PATH."Config.php";
-require CORE_PATH."Sanitizer.php";
-require CORE_PATH."View.php";
 require CORE_PATH."Database.php";
 require CORE_PATH."Controller.php";
 require APP_PATH."http/routes.php";
