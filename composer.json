@@ -9,12 +9,15 @@
         }
     ],
     "require": {
+		"php": ">=5.4.0",
         "illuminate/database": "^5.2",
         "windwalker/renderer": "^3.0",
-        "illuminate/view": "^5.2"
+        "illuminate/view": "^5.2",
+        "phroute/phroute": "^2.1"
     },
     "autoload": {
         "classmap": [
+            "app/controllers",
             "app/models"
         ]
     }

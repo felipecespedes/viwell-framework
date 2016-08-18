@@ -4,7 +4,24 @@ class Singleton
 {
 	protected static $instance;
 
-	protected static function getInstance()
+	private function __clone()
+	{
+	}
+
+	private function __wakeup()
+	{
+	}
+
+	protected function __construct()
+	{
+	}
+
+	protected function initialize()
+	{
+		static::$instance = new static();
+	}
+
+	public static function getInstance()
 	{
 		if (is_null(static::$instance))
 		{
@@ -13,15 +30,4 @@ class Singleton
 
 		return static::$instance;
 	}
-
-	protected function initialize()
-	{
-		static::$instance = new static();
-	}
-
-	protected function __construct() {}
-	
-	private function __clone() {}
-
-	private function __wakeup() {}
 }

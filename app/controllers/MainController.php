@@ -4,12 +4,12 @@ namespace app\controllers;
 
 use core\Controller;
 
-class HomeController extends Controller
+class MainController extends Controller
 {
 	/**
 	* Example of an implemented method
 	*/
-	public function actionIndex()
+	public function index()
 	{
 		return $this->view("index", ["framework" => "Viwell Framework"]);
 	}
