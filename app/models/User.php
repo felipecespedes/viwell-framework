@@ -2,9 +2,11 @@
 
 namespace app\models;
 
-use core\Model;
+use Illuminate\Database\Eloquent\Model as Eloquent;
 
-class User extends Model
+class User extends Eloquent
 {
-	protected $table = "users";
+	protected $fillable = ["name", "age", "email"];
+
+	public $timestamps = false;
 }

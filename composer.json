@@ -1,0 +1,19 @@
+{
+    "name": "viwell/framework",
+    "description": "PHP framework for web development",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Felipe Cespedes",
+            "email": "felipecespedespisso@gmail.com"
+        }
+    ],
+    "require": {
+        "illuminate/database": "^5.2"
+    },
+    "autoload": {
+        "classmap": [
+            "app/models"
+        ]
+    }
+}

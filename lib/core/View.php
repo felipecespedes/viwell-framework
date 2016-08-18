@@ -78,7 +78,7 @@ class View
 			$$key = $value;
 		}
 
-		require $this->view;
+		require_once $this->view;
 	}
 
 }

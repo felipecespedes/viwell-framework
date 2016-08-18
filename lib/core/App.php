@@ -45,7 +45,7 @@ class App
 
 		if (isset($url[1]))
 		{
-			$methodName = ucfirst(strtolower($url[1]));
+			$methodName = "action".ucfirst(strtolower($url[1]));
 			if (method_exists($this->controller, $methodName))
 			{
 				$this->method = $methodName;

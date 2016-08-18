@@ -3,7 +3,6 @@
 namespace app\controllers;
 
 use core\Controller;
-use core\Response;
 
 class HomeController extends Controller
 {
@@ -12,6 +11,6 @@ class HomeController extends Controller
 	*/
 	public function actionIndex()
 	{
-		return Response::view("index", ["framework" => "Viwell Framework"]);
+		return $this->view("index", ["framework" => "Viwell Framework"]);
 	}
 }
