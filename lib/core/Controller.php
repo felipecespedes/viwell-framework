@@ -2,6 +2,8 @@
 
 namespace core;
 
+use Windwalker\Renderer\BladeRenderer;
+
 class Controller
 {
 	public function actionIndex()
@@ -18,25 +20,9 @@ class Controller
 	*/
 	protected function view($view, $data = [])
 	{
-		// --------------------------------------------------------------
-		// Sanitize the view name
-		// --------------------------------------------------------------
-		$view = \Sanitizer::sanitizeViewName($view);
+		$renderer = new BladeRenderer([APP_PATH."views"], ["cache_path" => "cache"]);
 
-		// --------------------------------------------------------------
-		// Instantiate the View
-		// --------------------------------------------------------------
-		$view = new \View($view);
-
-		// --------------------------------------------------------------
-		// Add data to view
-		// --------------------------------------------------------------
-		foreach ($data as $key => $value)
-		{
-			$view->addVar($key, $value);
-		}
-
-		return $view->show();
+		return $renderer->render($view, $data);
 	}
 
 	/**
