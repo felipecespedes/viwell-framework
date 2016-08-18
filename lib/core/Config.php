@@ -26,9 +26,9 @@ class Config
 	*/
 	private static function loadConfigs()
 	{
-		if ( is_null(static::$configs) )
+		if (is_null(static::$configs))
 		{
-			static::$configs = Loader::loadAndReturn("config", "config/");
+			static::$configs = require "config/config.php";
 		}
 	}
 }

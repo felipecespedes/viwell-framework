@@ -1,6 +1,6 @@
 <?php
 
-namespace lib\helpers;
+namespace core;
 
 class Response
 {

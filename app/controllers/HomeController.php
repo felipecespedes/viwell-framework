@@ -2,15 +2,15 @@
 
 namespace app\controllers;
 
-use lib\controllers\Controller;
-use lib\helpers\Response;
+use core\Controller;
+use core\Response;
 
-class MainController extends Controller
+class HomeController extends Controller
 {
 	/**
 	* Example of an implemented method
 	*/
-	public function index()
+	public function actionIndex()
 	{
 		return Response::view("index", ["framework" => "Viwell Framework"]);
 	}

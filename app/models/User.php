@@ -2,7 +2,7 @@
 
 namespace app\models;
 
-use lib\models\Model;
+use core\Model;
 
 class User extends Model
 {

@@ -1,8 +1,8 @@
 <?php
 
-namespace lib\models;
+namespace core;
 
-use lib\database\DB;
+use core\DB;
 
 class Model
 {	
@@ -30,7 +30,7 @@ class Model
 		// By reflection get the name of the model table
 		// The default value is the class name, all lowercase
 		// --------------------------------------------------------------	
-		if ( is_null($this->table) )
+		if (is_null($this->table))
 		{
 			$reflection = new \ReflectionClass($this);
 			$this->table = strtolower($reflection->getShortName());
@@ -58,14 +58,14 @@ class Model
 		// --------------------------------------------------------------
 		// Execute the database query
 		// --------------------------------------------------------------
-		$sql = "select * from ".$model->table." where ".$model->primaryKey." = :id";
-		$params = ["id" => $id];
-		$result = DB::query($sql, $params);
+		$sql	= "select * from ".$model->table." where ".$model->primaryKey." = :id";
+		$params	= ["id" => $id];
+		$result	= DB::query($sql, $params);
 
 		// --------------------------------------------------------------
 		// Validate the result and build the model
 		// --------------------------------------------------------------
-		if ( !empty($result) )
+		if ( ! empty($result))
 		{
 			foreach ($result as $key => $value)
 			{
@@ -84,14 +84,14 @@ class Model
 		// --------------------------------------------------------------
 		// Execute the database query
 		// --------------------------------------------------------------
-		$sql = "select column_name from information_schema.columns where table_schema = :table_schema and table_name = :table_name";
-		$params = ["table_schema" => \Config::get("database"), "table_name" => $this->table];
-		$result = DB::queryAll($sql, $params);
+		$sql 	= "select column_name from information_schema.columns where table_schema = :table_schema and table_name = :table_name";
+		$params	= ["table_schema" => \Config::get("database"), "table_name" => $this->table];
+		$result	= DB::queryAll($sql, $params);
 
 		// --------------------------------------------------------------
 		// Validate the result and build the model structure
 		// --------------------------------------------------------------
-		if ( !empty($result) )
+		if ( ! empty($result))
 		{
 			foreach ($result as $key => $value)
 			{

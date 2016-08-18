@@ -28,7 +28,7 @@ class View
 		// --------------------------------------------------------------
 		// Assign default base directory if null
 		// --------------------------------------------------------------
-		if ( is_null($baseDir) ) 
+		if (is_null($baseDir)) 
 		{
 			$baseDir = APP_PATH."/views/";
 		}
@@ -41,7 +41,7 @@ class View
 		// --------------------------------------------------------------
 		// Validate if exists the view file and assign the path
 		// --------------------------------------------------------------
-		if ( file_exists($viewPath) )
+		if (file_exists($viewPath))
 		{
 			$this->view = $viewPath;
 		}
@@ -59,7 +59,7 @@ class View
 	*/
 	public function addVar($key, $value)
 	{
-		if ( !empty($key) )
+		if ( ! empty($key))
 		{
 			$this->assignedVars[$key] = $value;
 		}

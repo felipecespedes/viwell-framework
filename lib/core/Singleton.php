@@ -2,19 +2,24 @@
 
 class Singleton
 {
-	private static $instance;
+	protected static $instance;
 
 	protected static function getInstance()
 	{
-		if ( self::$instance == null )
+		if (is_null(static::$instance))
 		{
-			self::$instance = new static();
+			static::initialize();
 		}
 
-		return self::$instance;
+		return static::$instance;
 	}
 
-	private function __construct() {}
+	protected function initialize()
+	{
+		static::$instance = new static();
+	}
+
+	protected function __construct() {}
 	
 	private function __clone() {}
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace lib\database;
+namespace core;
 
 use \Config;
 

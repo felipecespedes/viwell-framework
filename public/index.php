@@ -23,6 +23,5 @@ define("APP_PATH", "app/");
 // --------------------------------------------------------------
 // Load Bootstrap and run the app
 // --------------------------------------------------------------
-require CORE_PATH."Bootstrap.php";
-$app = new Bootstrap();
-$app->run();
+require CORE_PATH."init.php";
+$app = new App;
