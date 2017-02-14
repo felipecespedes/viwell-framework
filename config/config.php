@@ -4,7 +4,7 @@
 | Configuration file
 |--------------------------------------------------------------
 |
-| Here is where you can define the configuration of your 
+| Here is where you can define the configuration of your
 | application
 |
 */
@@ -16,5 +16,6 @@ return [
 	"password"	=> "",
 	"charset"	=> "utf8",
 	"collation"	=> "utf8_unicode_ci",
-	"prefix"	=> ""
+	"prefix"	=> "",
+	"debug"		=> true
 ];
