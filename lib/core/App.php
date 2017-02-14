@@ -9,7 +9,15 @@ class App
 	{
 		$router = Router::getInstance();
 
-		$response = $router->dispatch($this->parseUrl());
+		try
+		{
+			$response = $router->dispatch($this->parseUrl());
+		}
+		catch (Exception $e)
+		{
+			// TODO Better way to handle router errors
+			$response = $e->getMessage();
+		}
 
 		echo $response;
 	}
