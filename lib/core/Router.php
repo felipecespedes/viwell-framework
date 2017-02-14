@@ -8,7 +8,7 @@ class Router extends Singleton
 	protected static $instance;
 	private $router;
 
-	protected function initialize()
+	protected static function initialize()
 	{
 		static::$instance = new static();
 		static::$instance->router = new RouteCollector();

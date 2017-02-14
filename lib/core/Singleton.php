@@ -16,7 +16,7 @@ class Singleton
 	{
 	}
 
-	protected function initialize()
+	protected static function initialize()
 	{
 		static::$instance = new static();
 	}
