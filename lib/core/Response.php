@@ -68,7 +68,7 @@ class Response {
 		}
 
 		if ($this->isJSON) {
-			header('Content-Type: application/json');
+			header("Content-Type: application/json");
 
 			return json_encode($this->data);
 		}

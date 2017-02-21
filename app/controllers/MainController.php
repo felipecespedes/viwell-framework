@@ -4,6 +4,7 @@ namespace app\controllers;
 
 use core\Controller;
 use core\Response;
+use core\Request;
 
 class MainController extends Controller {
 

@@ -53,6 +53,6 @@ class Router extends Singleton {
 
 		$dispatcher = new Dispatcher($this->router->getData());
 
-		return $dispatcher->dispatch($_SERVER['REQUEST_METHOD'], $url);
+		return $dispatcher->dispatch($_SERVER["REQUEST_METHOD"], $url);
 	}
 }
