@@ -33,9 +33,28 @@ class Response {
 		$this->headers = [];
 	}
 
+	public static function json($data, $statusCode = null) {
+
+		return new Response($data, $statusCode, true);
+	}
+
+	public static function response($data, $statusCode = null, $isJSON = null) {
+
+		return new Response($data, $statusCode, $isJSON);
+	}
+
 	public function header($header) {
 
 		array_push($this->headers, $header);
+
+		return $this;
+	}
+
+	public function withHeaders($headers) {
+
+		foreach ($headers as $header) {
+			array_push($this->headers, $header);
+		}
 
 		return $this;
 	}

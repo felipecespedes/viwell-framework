@@ -3,6 +3,7 @@
 namespace app\controllers;
 
 use core\Controller;
+use core\Response;
 
 class MainController extends Controller {
 
@@ -11,6 +12,6 @@ class MainController extends Controller {
 	*/
 	public function index() {
 
-		return $this->response(["message" => "Welcome to Viwell Framework"]);
+		return Response::json(["message" => "Welcome to Viwell Framework"]);
 	}
 }
