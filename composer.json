@@ -1,6 +1,6 @@
 {
     "name": "viwell/framework",
-    "description": "PHP framework for web development",
+    "description": "PHP framework for REST services",
     "license": "MIT",
     "authors": [
         {
@@ -10,13 +10,12 @@
     ],
     "require": {
 		"php": ">=5.4.0",
-        "phroute/phroute": "^2.1",
-        "windwalker/renderer": "^3.0",
-        "illuminate/view": "^5.2",
-        "illuminate/database": "^5.2"
+		"phroute/phroute": "^2.1",
+		"illuminate/database": "^5.2"
     },
     "autoload": {
         "classmap": [
+        	"lib",
             "app/controllers",
             "app/models"
         ]

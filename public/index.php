@@ -1,6 +1,6 @@
 <?php
 /**
-*	Viwell Framework - PHP framework for web development
+*	Viwell Framework - PHP framework for REST services
 *
 *	@package Viwell
 *	@version 1.0.0 Dev
@@ -14,27 +14,19 @@
 chdir(dirname(__DIR__));
 
 // --------------------------------------------------------------
-// Define the framework paths
+// Define framework paths
 // --------------------------------------------------------------
 define("SYS_PATH", "lib/");
-define("CORE_PATH", SYS_PATH."core/");
+define("CORE_PATH", SYS_PATH . "core/");
 define("APP_PATH", "app/");
 
 // --------------------------------------------------------------
-// Load Bootstrap
+// Load objects
 // --------------------------------------------------------------
-require CORE_PATH."init.php";
+require CORE_PATH . "Autoloader.php";
+new Autoloader();
 
-// --------------------------------------------------------------
-// Show errors if needed
-// --------------------------------------------------------------
-if (Config::get("debug")) {
-	ini_set('display_errors', 1);
-	ini_set('display_startup_errors', 1);
-	error_reporting(E_ALL);
-}
-
-// --------------------------------------------------------------
-// Run the app
-// --------------------------------------------------------------
-$app = new App;
+// // --------------------------------------------------------------
+// // Run application
+// // --------------------------------------------------------------
+new App();

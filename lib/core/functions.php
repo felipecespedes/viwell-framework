@@ -9,11 +9,14 @@
 */
 
 /**
-* Finalize the program execution and print a message
+* Finalize the program execution and print a error message
 *
-* @param string $message
+* @param string $errorMessage
+* @param number $statusCode
 */
-function fin($message = "PHP Exit.") {
+function fin($errorMessage = "An internal error has occurred.", $statusCode = 500) {
 
-	die($message);
+	http_response_code($statusCode);
+
+	die($errorMessage);
 }

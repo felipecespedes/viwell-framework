@@ -2,32 +2,22 @@
 
 namespace core;
 
-use Windwalker\Renderer\BladeRenderer;
+use core\Response;
 
 class Controller {
 
-	/**
-	* Render a view
-	*
-	* @param string $view
-	* @param array $data
-	* @return string
-	*/
-	protected function view($view, $data = []) {
-
-		$renderer = new BladeRenderer([APP_PATH."views"], ["cache_path" => "cache"]);
-
-		return $renderer->render($view, $data);
-	}
+	protected $response;
 
 	/**
 	* Render JSON data
 	*
 	* @param array $data
-	* @return json
+	* @param number $statusCode
+	* @param boolean $isJSON
+	* @return Response object
 	*/
-	protected function json($data) {
+	protected function response($data, $statusCode = null, $isJSON = null) {
 
-		return json_encode($data);
+		return new Response($data, $statusCode, $isJSON);
 	}
 }

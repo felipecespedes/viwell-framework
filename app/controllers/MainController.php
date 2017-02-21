@@ -11,6 +11,6 @@ class MainController extends Controller {
 	*/
 	public function index() {
 
-		return $this->view("index", ["framework" => "Viwell Framework"]);
+		return $this->response(["message" => "Welcome to Viwell Framework"]);
 	}
 }

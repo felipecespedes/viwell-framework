@@ -1,5 +1,9 @@
 # Viwell Framework
 
-## PHP framework for web development
+## PHP framework for REST services
 
-Coming soon all documentation
+```
+{"message":"Welcome to Viwell Framework"}
+```
+
+More documentation coming soon
