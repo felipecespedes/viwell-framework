@@ -4,8 +4,8 @@ namespace core;
 
 use Windwalker\Renderer\BladeRenderer;
 
-class Controller
-{
+class Controller {
+
 	/**
 	* Render a view
 	*
@@ -13,8 +13,8 @@ class Controller
 	* @param array $data
 	* @return string
 	*/
-	protected function view($view, $data = [])
-	{
+	protected function view($view, $data = []) {
+
 		$renderer = new BladeRenderer([APP_PATH."views"], ["cache_path" => "cache"]);
 
 		return $renderer->render($view, $data);
@@ -26,8 +26,8 @@ class Controller
 	* @param array $data
 	* @return json
 	*/
-	protected function json($data)
-	{
+	protected function json($data) {
+
 		return json_encode($data);
 	}
 }

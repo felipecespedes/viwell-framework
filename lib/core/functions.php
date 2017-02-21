@@ -13,7 +13,7 @@
 *
 * @param string $message
 */
-function fin($message = "PHP Exit.")
-{
+function fin($message = "PHP Exit.") {
+
 	die($message);
 }

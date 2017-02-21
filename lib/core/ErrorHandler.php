@@ -1,14 +1,14 @@
 <?php
 
-class ErrorHandler
-{
+class ErrorHandler {
+
 	/**
 	* Execute when a route is not found
 	*
 	* @param string $route
 	*/
-	public static function routeNotFound($route)
-	{
+	public static function routeNotFound($route) {
+
 		$message = "Error: This route was not found [ ".$route." ]. ";
 		fin($message);
 	}
@@ -18,8 +18,8 @@ class ErrorHandler
 	*
 	* @param string $file
 	*/
-	public static function fileNotFound($file)
-	{
+	public static function fileNotFound($file) {
+
 		$message = "Error: This file was not found [ ".$file." ]. ";
 		fin($message);
 	}
@@ -30,8 +30,8 @@ class ErrorHandler
 	* @param string $controller
 	* @param string $method
 	*/
-	public static function methodNotDefined($controller, $method)
-	{
+	public static function methodNotDefined($controller, $method) {
+
 		$message = "Error: This method is not defined [ ".$method." ]. in controller [".$controller."] ";
 		fin($message);
 	}
@@ -41,8 +41,8 @@ class ErrorHandler
 	*
 	* @param string $message
 	*/
-	public static function error($message)
-	{
+	public static function error($message) {
+
 		fin($message);
 	}
 }

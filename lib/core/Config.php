@@ -1,7 +1,7 @@
 <?php
 
-class Config
-{
+class Config {
+
 	/**
 	* Configuration values
 	*
@@ -15,8 +15,8 @@ class Config
 	* @param string $key
 	* @return string
 	*/
-	public static function get($key)
-	{
+	public static function get($key) {
+
 		static::loadConfigs();
 		return static::$configs[$key];
 	}
@@ -24,10 +24,9 @@ class Config
 	/**
 	* Load the defined configuration values
 	*/
-	private static function loadConfigs()
-	{
-		if (is_null(static::$configs))
-		{
+	private static function loadConfigs() {
+
+		if (is_null(static::$configs)) {
 			static::$configs = require "config/config.php";
 		}
 	}

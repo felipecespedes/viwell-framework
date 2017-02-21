@@ -1,20 +1,18 @@
 <?php
 
-class App
-{
+class App {
+
 	/**
 	* Initialize the application
 	*/
-	public function __construct()
-	{
+	public function __construct() {
+
 		$router = Router::getInstance();
 
-		try
-		{
+		try {
 			$response = $router->dispatch($this->parseUrl());
 		}
-		catch (Exception $e)
-		{
+		catch (Exception $e) {
 			// TODO Better way to handle router errors
 			$response = $e->getMessage();
 		}
@@ -27,14 +25,12 @@ class App
 	*
 	* @return string $url
 	*/
-	protected function parseUrl()
-	{
-		if (isset($_GET["url"]))
-		{
+	protected function parseUrl() {
+
+		if (isset($_GET["url"])) {
 			return filter_var(rtrim($_GET["url"]), FILTER_SANITIZE_URL);
 		}
-		else
-		{
+		else {
 			return "/";
 		}
 	}
