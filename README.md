@@ -13,7 +13,7 @@ $ git clone https://github.com/viwell/viwell-framework.git viwell-framework
 # change directory to your app
 $ cd viwell-framework
 
-# Install dependencies with composer
+# install dependencies with composer
 $ composer install
 ```
 
@@ -37,4 +37,4 @@ Then navigate to [localhost/viwell-framework](http://localhost/viwell-framework)
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE) file for details
