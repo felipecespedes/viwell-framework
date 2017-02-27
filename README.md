@@ -36,17 +36,17 @@ Navigate to [localhost/viwell-framework/public/](http://localhost/viwell-framewo
 
 	.
 	├── app
-	|   ├── controllers		# App controllers folder
+	|   ├── controllers     # App controllers folder
 	|	├── http
-	|	|	└── routes.php	# File for routes
-	|	└── models			# App models folder
+	|	|	└── routes.php  # File for routes
+	|	└── models          # App models folder
     ├── config
-	|	└── config.php		# File for configurations
-    ├── lib					# Folder for framework core files
-    ├── public				# Folder for public files
+	|	└── config.php      # File for configurations
+    ├── lib                 # Folder for framework core files
+    ├── public              # Folder for public files
     ├── LICENSE
     ├── README.md
-	└── composer.json		# Composer file
+	└── composer.json       # Composer file
 	
 ## Getting Started
 
@@ -88,11 +88,11 @@ Router::delete("/users/", "UserController", "destroy");
 
 Models use [Eloquent](https://laravel.com/docs/5.2/eloquent)
 
-### Responses
+### Requests
 
 `// TODO`
 
-### Requests
+### Responses
 
 `// TODO`
 
