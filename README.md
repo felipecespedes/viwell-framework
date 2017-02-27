@@ -17,7 +17,7 @@ $ cd viwell-framework
 $ composer install
 ```
 
-Then navigate to [localhost/viwell-framework/public/](http://localhost/viwell-framework/public/) and if everything goes well you should get a welcome message like this:
+Navigate to [localhost/viwell-framework/public/](http://localhost/viwell-framework/public/) and if everything goes well you should get a welcome message like this:
 
 ```json
 {"message":"Welcome to Viwell Framework"}
@@ -31,6 +31,70 @@ Then navigate to [localhost/viwell-framework/public/](http://localhost/viwell-fr
 * PDO PHP Extension
 * mod_rewrite enabled
 * [Composer](https://getcomposer.org/)
+
+## Folder Structure
+
+	.
+	├── app
+	|   ├── controllers     # App controllers folder
+	|	├── http
+	|	|	└── routes.php  # File for routes
+	|	└── models          # App models folder
+    ├── config
+	|	└── config.php      # File for configurations
+    ├── lib                 # Folder for framework core files
+    ├── public              # Folder for public files
+    ├── LICENSE
+    ├── README.md
+	└── composer.json       # Composer file
+	
+## Getting Started
+
+### Configuration file
+
+Define app configurations in [config.php](config/config.php)
+
+```PHP
+return [
+	"driver"	=> "mysql",
+	"hostname"	=> "localhost",
+	"database"	=> "test",
+	"username"	=> "username",
+	"password"	=> "password",
+	"charset"	=> "utf8",
+	"collation"	=> "utf8_unicode_ci",
+	"prefix"	=> "",
+	"debug"		=> true
+];
+```
+
+### Defining app routes
+
+In [routes.php](app/http/routes.php) you can define app routes that respond to different HTTP requests.
+
+```PHP
+Router::get("/users/", "UserController", "index");
+Router::get("/users/{id}", "UserController", "show");
+Router::post("/users/", "UserController", "create");
+Router::put("/users/", "UserController", "update");
+Router::delete("/users/", "UserController", "destroy");
+```
+
+### Controllers
+
+`// TODO`
+
+### Models
+
+Models use [Eloquent](https://laravel.com/docs/5.2/eloquent)
+
+### Requests
+
+`// TODO`
+
+### Responses
+
+`// TODO`
 
 ## Authors
 
