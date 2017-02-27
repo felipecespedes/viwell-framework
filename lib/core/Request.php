@@ -12,6 +12,8 @@ class Request extends Singleton {
 
 	private $params;
 
+	private $headers;
+
 	public function __construct() {
 
 		$method = $_SERVER["REQUEST_METHOD"];
@@ -26,15 +28,17 @@ class Request extends Singleton {
 		}
 
 		$this->params = $_GET;
+
+		$this->headers = getallheaders();
 	}
 
 	public static function param($key) {
 
-		$param = static::getInstance()->params;
+		$params = static::getInstance()->params;
 
-		if (isset($param[$key])) {
+		if (isset($params[$key])) {
 
-			return $param[$key];
+			return $params[$key];
 		}
 
 		return null;
@@ -65,6 +69,28 @@ class Request extends Singleton {
 		}
 
 		return null;
+	}
+
+	public static function header($key = null) {
+
+		$headers = static::getInstance()->headers;
+
+		if (isset($headers[$key])) {
+
+			return $headers[$key];
+		}
+
+		return null;
+	}
+
+	public static function headers($key = null) {
+
+		if (is_null($key)) {
+
+			return static::getInstance()->headers;
+		}
+
+		return static::header($key);
 	}
 
 }
