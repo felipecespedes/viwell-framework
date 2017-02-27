@@ -17,7 +17,7 @@ $ cd viwell-framework
 $ composer install
 ```
 
-Then navigate to [localhost/viwell-framework/public/](http://localhost/viwell-framework/public/) and if everything goes well you should get a welcome message like this:
+Navigate to [localhost/viwell-framework/public/](http://localhost/viwell-framework/public/) and if everything goes well you should get a welcome message like this:
 
 ```json
 {"message":"Welcome to Viwell Framework"}
