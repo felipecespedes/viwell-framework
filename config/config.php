@@ -4,8 +4,7 @@
 | Configuration file
 |--------------------------------------------------------------
 |
-| Here is where you can define the configuration of your
-| application
+| Here is where you can define app configurations
 |
 */
 return [

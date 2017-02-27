@@ -4,7 +4,7 @@
 | Application routes
 |--------------------------------------------------------------
 |
-| Here is where you can define the routes of your application
+| Here is where you can define app routes
 |
 */
 Router::get("/", "MainController", "index");
