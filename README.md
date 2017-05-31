@@ -199,7 +199,41 @@ Models use [Eloquent](https://laravel.com/docs/5.2/eloquent)
 
 ### Requests
 
-`// TODO`
+#### Query string
+
+To retrieve data given in a query string parameter, use:
+
+```PHP
+$name = Request::param("name");
+```
+To retrieve all the data given in the query string parameters as an associative array, use
+
+```PHP
+$params = Request::params();
+```
+
+#### Request body
+
+To retrieve data given in the request body, use:
+
+```PHP
+$name = Request::body("name");
+```
+
+#### Headers
+
+To retrieve data given in a header, use:
+
+```PHP
+$auth = Request::header("Authorization");
+```
+
+To retrieve all the data given in the headers as an associative array, use
+
+```PHP
+$headers = Request::headers();
+```
+
 
 ### Responses
 
