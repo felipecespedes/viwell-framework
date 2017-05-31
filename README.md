@@ -76,13 +76,122 @@ In [routes.php](app/http/routes.php) you can define app routes that respond to d
 Router::get("/users/", "UserController", "index");
 Router::get("/users/{id}", "UserController", "show");
 Router::post("/users/", "UserController", "create");
-Router::put("/users/", "UserController", "update");
-Router::delete("/users/", "UserController", "destroy");
+Router::put("/users/{id}", "UserController", "update");
+Router::delete("/users/{id}", "UserController", "delete");
 ```
 
 ### Controllers
 
-`// TODO`
+Let's create a basic controller which uses the above defined routes:
+
+```PHP
+<?php
+
+namespace app\controllers;
+
+use core\Controller;
+use core\Response;
+use core\Request;
+use app\models\User;
+
+class UserController extends Controller {
+
+	public function index() {
+
+		$users = User::all();
+
+		return Response::json($users);
+	}
+
+	public function show($id) {
+
+		$user = User::find($id);
+
+		if ($user) {
+
+			return Response::json($user);
+
+		} else {
+
+			return Response::json([
+				"message" => "user does not exists"
+			], 400);
+
+		}
+
+	}
+
+	public function create() {
+
+		$user = new User();
+
+		$user->name = Request::body("name");
+		$user->age = Request::body("age");
+		$user->email = Request::body("email");
+
+		if ($user->save()) {
+
+			return Response::json([
+				"message" => "user successfully created",
+				"user_id" => $user->id
+			]);
+
+		} else {
+
+			return Response::json([
+				"message" => "user could not be created"
+			], 400);
+
+		}
+
+	}
+
+	public function update($id) {
+
+		$user = User::find($id);
+
+		$user->name = Request::body("name");
+		$user->age = Request::body("age");
+		$user->email = Request::body("email");
+
+		if ($user->save()) {
+
+			return Response::json([
+				"message" => "user successfully updated"
+			]);
+
+		} else {
+
+			return Response::json([
+				"message" => "user could not be updated"
+			], 400);
+
+		}
+
+	}
+
+	public function delete($id) {
+
+		$user = User::find($id);
+
+		if ($user->delete()) {
+
+			return Response::json([
+				"message" => "user successfully deleted"
+			]);
+
+		} else {
+
+			return Response::json([
+				"message" => "user could not be deleted"
+			], 400);
+
+		}
+
+	}
+
+}
+```
 
 ### Models
 
