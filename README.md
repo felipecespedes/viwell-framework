@@ -237,10 +237,12 @@ $headers = Request::headers();
 
 ### Responses
 
-**Response::json** Returns json formatted data, it takes 2 parameters:
+**Response::json**
 
-- **$data** (required) Data that can be converted into json format.
-- **$statusCode** (optional) (default: 200) Response status code.
+Outputs a response with json formatted data, it takes 2 parameters:
+
+- **$data** Data that can be converted into json format. required: true
+- **$statusCode** Response status code. type: int | required: false | default: 200
 
 ```PHP
 public function index() {
@@ -257,6 +259,62 @@ Results in:
 {"message":"Welcome to Viwell Framework"}
 ```
 
+**Response::header**
+
+Adds headers to the HTTP response, it takes 1 parameter:
+
+- **$header** The header to be added. type: string | required: true
+
+```PHP
+public function index() {
+
+	$users = User::all();
+
+	return Response::json($users)
+		->header("Allow: GET")
+		->header("Access-Control-Allow-Origin: *");
+}
+```
+
+**Response::withHeaders**
+
+Adds an array of headers to the HTTP response, it takes 1 parameter:
+
+- **$headers** The headers to be added. type: string[] | required: true
+
+```PHP
+public function index() {
+
+	$users = User::all();
+
+	return Response::json($users)
+		->withHeaders(["Allow: GET", "Access-Control-Allow-Origin: *"]);
+}
+```
+
+**Response::response**
+
+Outputs a response of any kind, could be used to outputs a html response, it takes 3 parameters:
+
+- **$data** Outputted data. required: true
+- **$statusCode** Response status code. type: int | required: false | default: 200
+- **$isJSON** Wheater the respose is json or not. type: boolean | required: false | default: true
+
+```PHP
+public function index() {
+
+	$html = "
+		<html>
+			<head></head>
+			<body>
+				<h1>Hello World</h1>
+			</body>
+		</html>
+	";
+
+	return Response::response($html, 200, false);
+}
+```
 
 ## Authors
 
@@ -264,4 +322,4 @@ Results in:
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE) file for details
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
