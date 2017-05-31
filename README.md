@@ -82,6 +82,8 @@ Router::delete("/users/{id}", "UserController", "delete");
 
 ### Controllers
 
+Controllers go inside the `app/controllers` folder.
+
 Let's create a basic controller which uses the above defined routes:
 
 ```PHP
@@ -195,6 +197,8 @@ class UserController extends Controller {
 
 ### Models
 
+Models go inside the `app/models` folder.
+
 Models use [Eloquent](https://laravel.com/docs/5.2/eloquent)
 
 ### Requests
@@ -239,9 +243,9 @@ $headers = Request::headers();
 
 **Response::json**
 
-Outputs a response with json formatted data, it takes 2 parameters:
+Outputs a response with JSON formatted data, it takes 2 parameters:
 
-- **$data** Data that can be converted into json format. required: true
+- **$data** Data that can be converted into JSON format. required: true
 - **$statusCode** Response status code. type: int | required: false | default: 200
 
 ```PHP
@@ -294,11 +298,11 @@ public function index() {
 
 **Response::response**
 
-Outputs a response of any kind, could be used to outputs a html response, it takes 3 parameters:
+Outputs a response of any kind, could be used to outputs HTML responses, it takes 3 parameters:
 
 - **$data** Outputted data. required: true
 - **$statusCode** Response status code. type: int | required: false | default: 200
-- **$isJSON** Wheater the respose is json or not. type: boolean | required: false | default: true
+- **$isJSON** Whether the response is JSON or not. type: boolean | required: false | default: true
 
 ```PHP
 public function index() {
