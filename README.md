@@ -237,7 +237,26 @@ $headers = Request::headers();
 
 ### Responses
 
-`// TODO`
+**Response::json** Returns json formatted data, it takes 2 parameters:
+
+- **$data** (required) Data that can be converted into json format.
+- **$statusCode** (optional) (default: 200) Response status code.
+
+```PHP
+public function index() {
+
+	$data = ["message" => "Welcome to Viwell Framework"];
+
+	return Response::json($data, 200);
+}
+```
+
+Results in:
+
+```json
+{"message":"Welcome to Viwell Framework"}
+```
+
 
 ## Authors
 
