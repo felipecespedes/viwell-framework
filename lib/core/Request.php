@@ -16,9 +16,19 @@ class Request extends Singleton {
 
 	public function __construct() {
 
+		$this->headers = getallheaders();
+
+		$this->params = $_GET;
+
 		$method = $_SERVER["REQUEST_METHOD"];
 
-		if ($method === "POST") {
+		$isApplicationJSON = $this->isApplicationJSON($this->headers);
+
+		if (($method === "POST" || $method === "PUT" || $method === "DELETE") &&  $isApplicationJSON) {
+
+			$this->body = json_decode(file_get_contents("php://input"), true);
+
+		} else if ($method === "POST") {
 
 			$this->body = $_POST;
 
@@ -26,10 +36,6 @@ class Request extends Singleton {
 
 			parse_str(file_get_contents("php://input"), $this->body);
 		}
-
-		$this->params = $_GET;
-
-		$this->headers = getallheaders();
 	}
 
 	public static function param($key) {
@@ -91,6 +97,10 @@ class Request extends Singleton {
 		}
 
 		return static::header($key);
+	}
+
+	private function isApplicationJSON($headers) {
+		return @array_change_key_case($headers, CASE_LOWER)["content-type"] === "application/json";
 	}
 
 }
