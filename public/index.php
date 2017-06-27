@@ -3,7 +3,7 @@
 *	Viwell Framework - PHP framework for REST services
 *
 *	@package Viwell
-*	@version 0.0.1
+*	@version 0.1.0
 *	@author Felipe Céspedes
 *	@license MIT License
 */
@@ -26,7 +26,7 @@ define("APP_PATH", "app/");
 require CORE_PATH . "Autoloader.php";
 new Autoloader();
 
-// // --------------------------------------------------------------
-// // Run application
-// // --------------------------------------------------------------
+// --------------------------------------------------------------
+// Run application
+// --------------------------------------------------------------
 new App();
