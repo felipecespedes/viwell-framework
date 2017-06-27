@@ -10,6 +10,7 @@
 return [
 	"driver"	=> "mysql",
 	"hostname"	=> "localhost",
+	"port"		=> 3306,
 	"database"	=> "test",
 	"username"	=> "root",
 	"password"	=> "",
