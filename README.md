@@ -36,17 +36,17 @@ Navigate to [localhost/viwell-framework/public/](http://localhost/viwell-framewo
 
 	.
 	├── app
-	|   ├── controllers     # App controllers folder
+	|   ├── controllers		# Folder for controllers
 	|	├── http
-	|	|	└── routes.php  # File for routes
-	|	└── models          # App models folder
+	|	|	└── routes.php	# File for routes
+	|	└── models		# Folder for models
     ├── config
-	|	└── config.php      # File for configurations
-    ├── lib                 # Folder for framework core files
-    ├── public              # Folder for public files
+	|	└── config.php		# File for configurations
+    ├── lib				# Folder for framework core files
+    ├── public			# Folder for public files
     ├── LICENSE
     ├── README.md
-	└── composer.json       # Composer file
+	└── composer.json		# Composer file
 	
 ## Getting Started
 
@@ -58,6 +58,7 @@ Define app configurations in [config.php](config/config.php)
 return [
 	"driver"	=> "mysql",
 	"hostname"	=> "localhost",
+	"port"		=> 3306,
 	"database"	=> "test",
 	"username"	=> "username",
 	"password"	=> "password",
@@ -109,7 +110,7 @@ class UserController extends Controller {
 
 		$user = User::find($id);
 
-		if ($user) {
+		if ( ! is_null($user)) {
 
 			return Response::json($user);
 
@@ -131,14 +132,15 @@ class UserController extends Controller {
 		$user->age = Request::body("age");
 		$user->email = Request::body("email");
 
-		if ($user->save()) {
+		try {
+			$user->save();
 
 			return Response::json([
 				"message" => "user successfully created",
 				"user_id" => $user->id
 			]);
 
-		} else {
+		} catch (\Exception $e) {
 
 			return Response::json([
 				"message" => "user could not be created"
@@ -156,13 +158,14 @@ class UserController extends Controller {
 		$user->age = Request::body("age");
 		$user->email = Request::body("email");
 
-		if ($user->save()) {
+		try {
+			$user->save();
 
 			return Response::json([
 				"message" => "user successfully updated"
 			]);
 
-		} else {
+		} catch (\Exception $e) {
 
 			return Response::json([
 				"message" => "user could not be updated"
@@ -176,13 +179,14 @@ class UserController extends Controller {
 
 		$user = User::find($id);
 
-		if ($user->delete()) {
+		try {
+			$user->delete();
 
 			return Response::json([
 				"message" => "user successfully deleted"
 			]);
 
-		} else {
+		} catch (\Exception $e) {
 
 			return Response::json([
 				"message" => "user could not be deleted"
