@@ -3,7 +3,7 @@
 *	Viwell Framework - PHP framework for REST services
 *
 *	@package Viwell
-*	@version 0.1.0
+*	@version 0.2.0
 *	@author Felipe Céspedes
 *	@license MIT License
 */
