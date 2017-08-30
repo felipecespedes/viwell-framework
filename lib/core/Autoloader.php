@@ -8,6 +8,8 @@ class Autoloader {
 
 		$this->loadVendor();
 
+		$this->loadAppClasses();
+
 		$this->loadRoutes();
 
 		$this->loadDatabase();
@@ -31,5 +33,17 @@ class Autoloader {
 	private function loadDatabase() {
 
 		require_once CORE_PATH . "database.php";
+	}
+
+	private function loadAppClasses() {
+
+		spl_autoload_register(function($className){
+
+			if (substr($className, 0, 5) === "core\\") {
+				$className = "lib\\" . $className;
+			}
+
+			require_once preg_replace("/\\\\/", "/", $className) . ".php";
+		});
 	}
 }
