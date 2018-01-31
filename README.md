@@ -326,7 +326,7 @@ public function index() {
 
 ## Authors
 
-* **Felipe Céspedes** - *felipecespedespisso@gmail.com* - [Viwell](https://github.com/viwell)
+* **Felipe Céspedes** - *felipecespedespisso@gmail.com* - [felipecespedes](https://github.com/felipecespedes)
 
 ## License
 
