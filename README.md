@@ -8,7 +8,7 @@ Clone/Download this repo inside `htdocs` folder for [Xampp](https://www.apachefr
 
 ```bash
 # clone this repo
-$ git clone https://github.com/viwell/viwell-framework.git viwell-framework
+$ git clone https://github.com/felipecespedes/viwell-framework.git viwell-framework
 
 # change directory to your app
 $ cd viwell-framework
